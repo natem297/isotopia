@@ -87,7 +87,11 @@ norm()
     /^[[:space:]]*Execution time:/                 { next }
     /^[[:space:]]*#[[:space:]]*user:[[:space:]]/ { next }
     /^[[:space:]]*#[[:space:]]*date:[[:space:]]/ { next }
-    { print }
+    {
+      gsub(/\/Users\/koning\/isotopia\.libs/, "<ISOTOPIA_LIBS>")
+      gsub(/\/home\/natem297\/nuclear\/isotopia\.libs/, "<ISOTOPIA_LIBS>")
+      print
+    }
   ' "$1"
 }
 
